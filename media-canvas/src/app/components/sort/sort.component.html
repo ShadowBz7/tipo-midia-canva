@@ -1,0 +1,43 @@
+<!-- Banner  -->
+<div class="w-100 mb-4">
+  <img
+    src="https://static.canva.com/web/images/4a825d24e6fb578c2ff6061aade52217.jpg"
+    alt="Projects Banner"
+    class="img-fluid rounded"
+    style="height: 150px; width: 100%; object-fit: cover;"
+  />
+</div>
+
+<!-- Controles  -->
+<div
+  class="d-flex justify-content-between align-items-center w-100 mb-4"
+>
+  <!-- sort -->
+  <div class="dropdown">
+    <button
+      class="btn btn-outline-secondary dropdown-toggle"
+      type="button"
+      id="sortDropdown"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      {{ selected }}
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="sortDropdown">
+      <li *ngFor="let option of options">
+        <button class="dropdown-item" (click)="select(option)">
+          {{ option }}
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Botão de criar novo -->
+  <button
+    routerLink="/create"
+    class="btn btn-primary"
+  >
+    <i class="bi bi-plus-lg me-1"></i>
+    Criar novo
+  </button>
+</div>

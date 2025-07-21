@@ -1,0 +1,24 @@
+<div class="container-fluid vh-100">
+  <div class="row h-100">
+    <div class="col-auto bg-light border-end p-0">
+    <!-- Sidebar -->
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="col d-flex flex-column p-3">
+
+      <!-- Título -->
+      <app-search></app-search>
+      <h1 class="text-center my-4">Projects</h1>
+
+      <!-- Sort -->
+      <div class="d-flex justify-content-between align-items-center mb-4 w-100">
+        <app-sort (sortChange)="onSortChange($event)"></app-sort>
+      </div>
+
+      <!-- Grid do sort -->
+      <div class="flex-grow-1 overflow-auto">
+        <app-projects [sortField]="sortField"></app-projects>
+      </div>
+    </div>
+  </div>
+</div>

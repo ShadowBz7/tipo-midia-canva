@@ -1,0 +1,20 @@
+<div class="container-fluid vh-100">
+  <div class="row h-100">
+    <div class="col-auto bg-light border-end p-0">
+    <!-- Sidebar -->
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="col d-flex flex-column p-3">
+        <!-- Topbar -->
+      <app-topbar title="Visualizar / Editar Projeto" backRoute="/projects"></app-topbar>
+      <div
+        class="d-flex justify-content-center align-items-start flex-grow-1 overflow-auto py-4"
+      >
+        <div class="w-100" style="max-width: 900px;">
+                <!-- View -->
+          <app-view-project></app-view-project>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

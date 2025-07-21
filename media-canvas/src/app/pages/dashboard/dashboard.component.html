@@ -1,0 +1,28 @@
+<div class="container-fluid vh-100">
+  <div class="row h-100">
+
+    <!-- Sidebar -->
+    <div class="col-auto bg-light border-end p-0">
+      <app-sidebar></app-sidebar>
+    </div>
+
+    <!-- Título da Página -->
+    <div class="col d-flex flex-column p-3">
+      <h1 class="text-center my-4">Dashboard</h1> 
+      
+      <!-- Search -->
+      <app-search></app-search>
+
+      <!-- Tools  -->
+      <div class="mb-4">
+        <app-tools></app-tools>
+      </div>
+
+      <!--  Projects  -->
+      <div class="flex-grow-1 overflow-auto">
+        <app-projects></app-projects>
+      </div>
+
+    </div>
+  </div>
+</div>

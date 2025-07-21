@@ -1,0 +1,22 @@
+<div
+  class="d-flex justify-content-center align-items-center gap-4 mb-0 overflow-auto"
+  style="white-space: nowrap;"
+>
+  <div
+    *ngFor="let t of tools"
+    class="d-flex flex-column align-items-center"
+    style="width: 80px; display: inline-flex;"
+  >
+    <button
+      routerLink="/create"
+      [queryParams]="{ type: t.label }"
+      class="btn btn-light rounded-circle mb-2 d-flex align-items-center justify-content-center"
+      style="width: 56px; height: 56px;"
+      [attr.title]="'Create new ' + t.label"
+      [attr.aria-label]="'Create new ' + t.label"
+    >
+      <i [class]="t.icon + ' fs-4'"></i>
+    </button>
+    <span class="text-center small">{{ t.label }}</span>
+  </div>
+</div>

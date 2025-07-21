@@ -1,0 +1,101 @@
+<div class="card shadow-sm w-100 rounded-4">
+  <div class="card-body p-4">
+    <h5 class="text-center mb-4">Criar novo projeto</h5>
+
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="d-flex flex-column">
+
+      <div class="d-flex align-items-center mb-4">
+        <div
+          class="bg-secondary rounded-circle d-flex align-items-center justify-content-center me-4"
+          style="width: 64px; height: 64px;"
+        >
+          <i [class]="iconMap[form.type] + ' fs-2 text-white'"></i>
+        </div>
+        <div class="row gx-3 flex-grow-1">
+          <div class="col-8">
+            <label class="form-label">Tipo</label>
+            <select
+              name="type"
+              class="form-select"
+              [(ngModel)]="form.type"
+              (change)="onTypeChange($event)"
+            >
+              <option *ngFor="let t of types" [value]="t">{{ t }}</option>
+            </select>
+          </div>
+          <div class="col-4">
+            <label class="form-label">Extensão</label>
+            <select
+              name="extension"
+              class="form-select"
+              [(ngModel)]="form.extension"
+              [disabled]="extensions.length === 0"
+            >
+              <option *ngIf="extensions.length === 0" disabled>
+                Todas suportadas
+              </option>
+              <option *ngFor="let e of extensions" [value]="e">
+                {{ e }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nome -->
+      <div class="mb-3">
+        <label class="form-label">Nome</label>
+        <input
+          type="text"
+          name="name"
+          class="form-control"
+          [(ngModel)]="form.name"
+          required
+          placeholder="name do projeto"
+        />
+      </div>
+
+      <!-- Autor -->
+      <div class="mb-3">
+        <label class="form-label">Autor</label>
+        <input
+          type="text"
+          name="author"
+          class="form-control"
+          [(ngModel)]="form.author"
+          placeholder="name do autor"
+        />
+      </div>
+
+      <!-- Descrição -->
+      <div class="mb-3">
+        <label class="form-label">Descrição</label>
+        <textarea
+          name="description"
+          class="form-control"
+          rows="4"
+          [(ngModel)]="form.description"
+          placeholder="Descrição do projeto"
+        ></textarea>
+      </div>
+
+      <!-- Botões -->
+      <div class="d-flex justify-content-center gap-3 mt-4">
+        <button
+          type="submit"
+          class="btn btn-primary px-5"
+          [disabled]="f.invalid"
+        >
+          <i class="bi bi-check-lg me-2"></i> Criar
+        </button>
+        <button
+          type="button"
+          class="btn btn-link text-secondary"
+          routerLink="/projects"
+        >
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

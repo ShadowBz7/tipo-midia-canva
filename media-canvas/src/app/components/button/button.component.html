@@ -1,0 +1,8 @@
+<button
+  [routerLink]="route"
+  class="btn btn-primary d-flex align-items-center"
+  [attr.aria-label]="label"
+>
+  <i *ngIf="icon" [class]="icon + ' me-2'"></i>
+  {{ label }}
+</button>

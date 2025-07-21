@@ -1,0 +1,128 @@
+<form
+  #f="ngForm"
+  (ngSubmit)="onSubmit(f)"
+  class="d-flex justify-content-center h-100"
+>
+  <div
+    class="card shadow-sm w-100"
+    style="max-width: 900px; border-radius: 1rem;"
+  >
+    <div class="card-body p-4 d-flex">
+
+      <!-- Coluna do ícone -->
+      <div class="flex-shrink-0 me-4 d-flex align-items-start">
+        <div
+          class="bg-secondary rounded-circle d-flex align-items-center justify-content-center"
+          style="width: 180px; height: 180px;"
+        >
+          <i [class]="iconMap[form.type] + ' fs-1 text-white'"></i>
+        </div>
+      </div>
+
+      <!-- Coluna do formulário -->
+      <div class="flex-grow-1">
+
+        <!-- Tipo / Extensão -->
+        <div class="row g-3 mb-3">
+          <div class="col">
+            <label class="form-label">Tipo</label>
+            <select
+              name="type"
+              class="form-select"
+              [(ngModel)]="form.type"
+              (change)="onTypeChange($event)"
+            >
+              <option *ngFor="let t of types" [value]="t">{{ t }}</option>
+            </select>
+          </div>
+          <div class="col">
+            <label class="form-label">Extensão</label>
+            <select
+              name="extension"
+              class="form-select"
+              [(ngModel)]="form.extension"
+              [disabled]="extensions.length === 0"
+            >
+              <option *ngFor="let e of extensions" [value]="e">{{ e }}</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Nome / Criado em-->
+        <div class="row g-3 mb-3">
+          <div class="col">
+            <label class="form-label">Nome</label>
+            <input
+              type="text"
+              name="name"
+              class="form-control"
+              [(ngModel)]="form.name"
+              required
+            />
+          </div>
+          <div class="col">
+            <label class="form-label">Criado em</label>
+            <input
+              type="text"
+              class="form-control"
+              [value]="form.created_at | date:'short'"
+              disabled
+            />
+          </div>
+        </div>
+
+        <!-- Autor / Atualizado em -->
+        <div class="row g-3 mb-3">
+          <div class="col">
+            <label class="form-label">Autor</label>
+            <input
+              type="text"
+              name="author"
+              class="form-control"
+              [(ngModel)]="form.author"
+            />
+          </div>
+          <div class="col">
+            <label class="form-label">Atualizado em</label>
+            <input
+              type="text"
+              class="form-control"
+              [value]="form.updated_at | date:'short'"
+              disabled
+            />
+          </div>
+        </div>
+
+        <!-- Descrição / Botões -->
+        <div class="row g-3">
+          <div class="col-md-8">
+            <label class="form-label">Descrição</label>
+            <textarea
+              name="description"
+              class="form-control"
+              rows="4"
+              [(ngModel)]="form.description"
+            ></textarea>
+          </div>
+          <div class="col-md-4 d-flex flex-column justify-content-end">
+            <button
+              type="submit"
+              class="btn btn-success w-100 mb-2"
+              [disabled]="f.invalid"
+            >
+              <i class="bi bi-save me-2"></i>Salvar
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger w-100"
+              (click)="onDelete()"
+            >
+              <i class="bi bi-trash me-2"></i>Deletar
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</form>

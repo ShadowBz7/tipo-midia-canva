@@ -1,0 +1,23 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <!-- Sidebar -->
+    <div class="col-auto bg-light border-end p-0">
+      <app-sidebar></app-sidebar>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="col d-flex flex-column p-3" style="min-height:100vh;">
+
+      <!-- Topbar -->
+      <app-topbar title="Criar Projeto" backRoute="/projects"></app-topbar>
+
+      <div class="d-flex justify-content-center align-items-start flex-grow-1 overflow-auto py-2">
+        <div class="w-100" style="max-width:600px;">
+          <app-create-project></app-create-project>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
